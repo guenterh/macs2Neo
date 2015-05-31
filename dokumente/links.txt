@@ -1,0 +1,62 @@
+
+Graphendatenbank für Historiker
+http://mittelalter.hypotheses.org/files/2015/05/Kuczera-Graphdatenbanken-f%C3%BCr-Historiker-PDFA.pdf
+
+
+Beispiel für Verknüfungen mit 1 : n Beziehungen zwichen Konzepten
+
+ Beispiel, bei dem eine Schlagwortzusammensetzung aus Rameau oder LCSH auf mehrere Schlagworte
+
+
+   <doc>
+     <field name="id">MACS0000009</field>
+     <field name="RAMEAU">Acteurs noirs américains</field>
+     <field name="RAMEAU_number">FRBNF12297666X</field>
+     <field name="LCSH">Afro-American actors</field>
+     <field name="LCSH_number">sh85001782</field>
+     <field name="SWD">Schauspieler+USA+Schwarze</field>
+     <field name="SWD_number">4052154-0+4078704-7+4116433-7</field>
+
+   </doc>
+
+
+Beispielsuche für einen SWD Begriff in der GND
+https://portal.dnb.de/opac.htm?query=4052154-0&method=simpleSearch
+http://lccn.loc.gov/sh95005351
+
+
+
+weitere Links aus der Mittelaleterdatenbank
+http://mittelalter.hypotheses.org/5995
+http://mittelalter.hypotheses.org/
+http://mittelalter.hypotheses.org/3764
+
+
+
+****
+
+ <doc>
+    <field name="id">MACS0000012</field>
+    <field name="RAMEAU">Théâtre noir américain</field>
+    <field name="RAMEAU_number">FRBNF119715076</field>
+    <field name="LCSH">Afro-American theater</field>
+    <field name="LCSH_number">sh85001915</field>
+    <field name="SWD">Theater+Schwarze+USA</field>
+    <field name="SWD_number">4059702-7+4116433-7+4078704-7</field>
+  </doc>
+
+
+wie bilde ich einen Rameu link
+FRBNF119715076
+FRBNF(11971507)6
+http://data.bnf.fr/11971507
+http://data.bnf.fr/11971507/theatre_noir_americain/
+
+
+http://d-nb.info/gnd/4059702-7
+http://d-nb.info/gnd/4116433-7
+http://d-nb.info/gnd/4078704-7
+
+http://lccn.loc.gov/sh85001915
+
+
