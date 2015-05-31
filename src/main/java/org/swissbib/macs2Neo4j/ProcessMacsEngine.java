@@ -24,37 +24,9 @@ public class ProcessMacsEngine {
         solr2NeoParser.parseSolrFile();
 
 
-        /*
-        try {
-            XMLInputFactory xmlif = XMLInputFactory.newInstance();
-            xmlif.setProperty(XMLInputFactory.IS_COALESCING, Boolean.TRUE); // converts &#x303; to ñ etc.
-
-            xmlif.setEventAllocator(new XMLEventAllocatorImpl());
-            allocator = xmlif.getEventAllocator();
-
-            // marc21 data
-            FileInputStream fileInputStream = new FileInputStream("/home/swissbib/Desktop/macs/export-tel.html");
-            XMLStreamReader xmlStreamReader = xmlif.createXMLStreamReader(fileInputStream);
-
-            // solr docs
-            openSolrOut();
-
-            while (xmlStreamReader.hasNext()) {
-                parseRecord(xmlStreamReader);
-            }
-
-        } catch (XMLStreamException streamExc) {
-
-            streamExc.printStackTrace();
-        } catch (FileNotFoundException fnFExc) {
-            fnFExc.printStackTrace();
-        } catch (UnsupportedEncodingException unsEnc) {
-            unsEnc.printStackTrace();
-        } catch (IOException ioExc) {
-            ioExc.printStackTrace();
-        }
-        */
-
+        Neo4JCreator neoCreator = new Neo4JCreator();
+        neoCreator.startTransformation(solr2NeoParser.getMacsRelation());
+        neoCreator.shutdownDatabase();
 
     }
 

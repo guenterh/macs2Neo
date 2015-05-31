@@ -1,0 +1,25 @@
+
+
+CREATE (vMacs:MACS {id:'MACS0000001'})
+CREATE vMacs -[:contains]->(vSwd:SWD{id:'4129090-2',text:'Schauspielkunst'})
+
+
+CREATE
+(vMacs:MACS {id:'MACS0000001'}),
+vMacs - [:contains]->(vSwd:SWD{id:'4129090-2',text:'Schauspielkunst'}),
+vMacs - [:contains]->(vRameau:RAMEAU{id:'FRBNF11930966X',text:'Art dramatique'}),
+vMacs - [:contains]->(vLCSH:LCSH{id:'sh85000691',text:'Acting'})
+
+
+CREATE
+(vMacs:MACS {id:'MACS0000202'}),
+vMacs - [:contains]->(vAndNode:AndNode) ,
+vAndNode-[:conatins]->(vSwd1:SWD{id:'4059702-7',text:'Theater'}),
+vAndNode-[:conatins]->(vSwd2:SWD{id:'4020517-4',text:'Geschichte'}),
+vMacs - [:contains]->(RAMEAU{id:'FRBNF12191517X',text:'Théâtre -- 19e siècle'}),
+vMacs - [:contains]->(LCSH{id:'sh85134536',text:'Theater -- History -- 19th century'})
+
+
+
+
+

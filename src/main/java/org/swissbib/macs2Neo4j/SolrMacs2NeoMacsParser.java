@@ -190,4 +190,8 @@ public class SolrMacs2NeoMacsParser {
 
     }
 
+    public ArrayList<SubjectNodesRelations> getMacsRelation() {
+        return this.subjectNodeRelations;
+    }
+
 }

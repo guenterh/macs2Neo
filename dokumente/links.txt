@@ -60,3 +60,41 @@ http://d-nb.info/gnd/4078704-7
 http://lccn.loc.gov/sh85001915
 
 
+
+
+A lot of examples:
+http://gist.neo4j.org/
+https://github.com/neo4j-contrib/graphgist/wiki
+
+http://de.wikipedia.org/wiki/Syntaktische_Indexierung
+http://de.wikipedia.org/wiki/Schlagwortkatalog
+http://de.wikipedia.org/wiki/Gleichordnende_Indexierung
+
+
+*****
+Was ist NSogg
+  <doc>
+    <field name="id">MACS0000120</field>
+    <field name="RAMEAU">Comédies musicales</field>
+    <field name="RAMEAU_number">FRBNF119361460</field>
+    <field name="LCSH">Musicals</field>
+    <field name="LCSH_number">sh 85089018</field>
+    <field name="SWD">Musical</field>
+    <field name="SWD_number">4040801-2</field>
+    <field name="NSogg">Commedie musicali</field>
+    <field name="NSogg_number">1615</field>
+  </doc>
+
+  ****
+
+  ich habe nicht immer Swd
+    <doc>
+      <field name="id">MACS0000141</field>
+      <field name="RAMEAU">Décors projetés</field>
+      <field name="RAMEAU_number">FRBNF131866646</field>
+      <field name="LCSH">Projected scenery</field>
+      <field name="LCSH_number">sh 94008729</field>
+    </doc>
+
+
+
