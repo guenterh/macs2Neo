@@ -4,6 +4,7 @@ import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 import org.neo4j.graphdb.factory.GraphDatabaseSettings;
 
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -13,30 +14,30 @@ public class Neo4JCreator {
 
     GraphDatabaseService service;
 
+    String neo4JDirectory;
 
-    public Neo4JCreator()  {
-
-
+    public Neo4JCreator(String neo4jDirectory)  {
+        this.neo4JDirectory = neo4jDirectory;
         init();
     }
 
 
     private void init() {
         this.service  = new GraphDatabaseFactory().newEmbeddedDatabaseBuilder(
-                "target/ne04jdb/location" )
+                new File(this.neo4JDirectory) )
                 //.setConfig( GraphDatabaseSettings.read_only, "true" )
                 .newGraphDatabase();
 
-        String test = "";
     }
 
     public void startTransformation(ArrayList<SubjectNodesRelations> macsSubjectList) {
 
         for (SubjectNodesRelations relations: macsSubjectList) {
 
-            for (SWDType swdType :  relations.getSwdTypes()) {
+            //todo: now create the Neo structure
 
-            }
+            ArrayList<ArrayList<? extends SubjectType>> listOfExpressions = relations.getExpressionList();
+            //System.out.println();
 
         }
 

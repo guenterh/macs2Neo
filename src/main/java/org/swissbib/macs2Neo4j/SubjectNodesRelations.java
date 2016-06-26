@@ -26,6 +26,9 @@ public class SubjectNodesRelations {
     private String macsId;
 
 
+    private ArrayList<ArrayList<? extends SubjectType>> listOfExpressions = new ArrayList<ArrayList<? extends SubjectType>>();
+
+
     private ArrayList<SWDType> swdTypes = new ArrayList<SWDType>();
     private ArrayList<RameauType> rameauTypes = new ArrayList<RameauType>();
     private ArrayList<LcshType> lcshTypes = new ArrayList<LcshType>();
@@ -44,20 +47,23 @@ public class SubjectNodesRelations {
     }
 
 
-    public void setSwdTpe(SWDType swtType) {
+    public void setSwdTypes(ArrayList<SWDType> swdTypes) {
 
-        this.swdTypes.add(swtType);
+        this.swdTypes = swdTypes;
+        this.addExpressionlist(swdTypes);
     }
 
 
-    public void setRameauTpe(RameauType rameauType) {
+    public void setRameauTypes(ArrayList<RameauType> rameauTypes) {
 
-        this.rameauTypes.add(rameauType);
+        this.rameauTypes = rameauTypes;
+        this.addExpressionlist(rameauTypes);
     }
 
-    public void setLcshTpe(LcshType lcshType) {
+    public void setLcshTypes(ArrayList<LcshType> lcshTypes) {
 
-        this.lcshTypes.add(lcshType);
+        this.lcshTypes = lcshTypes;
+        this.addExpressionlist(lcshTypes);
     }
 
 
@@ -76,6 +82,20 @@ public class SubjectNodesRelations {
 
     public void setMacsID(String id) {
         this.macsId = id;
+    }
+
+    public String getMacsId() {
+        return this.macsId;
+    }
+
+
+    public void addExpressionlist (ArrayList<? extends SubjectType> expressionList) {
+        this.listOfExpressions.add(expressionList);
+
+    }
+
+    public ArrayList<ArrayList<? extends SubjectType>> getExpressionList () {
+        return this.listOfExpressions;
     }
 
 

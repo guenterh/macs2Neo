@@ -1,13 +1,7 @@
 package org.swissbib.macs2Neo4j;
 
-import com.sun.xml.stream.events.XMLEventAllocatorImpl;
 
-import javax.xml.stream.*;
-import javax.xml.stream.events.XMLEvent;
-import javax.xml.stream.util.XMLEventAllocator;
-import java.io.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
 
 /**
  * Created by swissbib on 31.05.15.
@@ -19,13 +13,25 @@ public class ProcessMacsEngine {
     public static void main (String[] args) {
 
 
-        SolrMacs2NeoMacsParser solr2NeoParser = new SolrMacs2NeoMacsParser("/home/swissbib/Desktop/macs/export-tel.html","");
+        //SolrMacsSaxNeoMacsParser solr2NeoParser = new SolrMacsSaxNeoMacsParser("/home/swissbib/temp/macsdata/macsdata.xml","");
+        //solr2NeoParser.parseSolrModel();
 
-        solr2NeoParser.parseSolrFile();
+
+        if (args.length != 2) {
+            System.out.println("use: classname 'path to solr macs file' 'directory for the neo database'" );
+            System.exit(-1);
+        }
+
+        SolrMacs2NeoMacsParser solr2NeoParser = new SolrMacs2NeoMacsParser(args[0]);
+        solr2NeoParser.parseSolrModel();
+
+        ArrayList<SubjectNodesRelations> bundles =  solr2NeoParser.getMacsRelation();
+
+        System.out.println("reached the end");
 
 
-        Neo4JCreator neoCreator = new Neo4JCreator();
-        neoCreator.startTransformation(solr2NeoParser.getMacsRelation());
+        Neo4JCreator neoCreator = new Neo4JCreator(args[1]);
+        neoCreator.startTransformation(bundles);
         neoCreator.shutdownDatabase();
 
     }
