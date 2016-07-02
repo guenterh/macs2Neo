@@ -18,3 +18,13 @@ mvn assembly:assembly
 Start
 java -cp target/macs2Neo-1.0-SNAPSHOT-jar-with-dependencies.jar org/swissbib/macs2Neo4j/ProcessMacsEngine /home/swissbib/temp/macsdata/macsdata.xml /tmp/neo4j
 
+
+
+Guide to CSV
+https://neo4j.com/developer/guide-import-csv/
+https://github.com/nicolewhite/neo4j-complaints
+
+http://www.markhneedham.com/blog/2014/10/23/neo4j-cypher-avoiding-the-eager/
+
+./neo4j-shell -v -file /home/swissbib/environment/tools/neo4j3/data/load.macs.cql
+
