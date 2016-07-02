@@ -3,7 +3,7 @@ export FILEPATH=file:///macs.csv
 // Complaints, companies, responses.
 
 	// Uniqueness constraints.
-CREATE CONSTRAINT ON (m:MacsBundel) ASSERT m.id IS UNIQUE;
+CREATE CONSTRAINT ON (m:MacsBundle) ASSERT m.id IS UNIQUE;
 CREATE CONSTRAINT ON (s:Subject) ASSERT s.id IS UNIQUE;
 
 // Load.
@@ -18,7 +18,7 @@ WHERE line.LCSHtext IS NOT NULL AND
 MERGE (subject:Subject { id: (line.`LCSHid`) })
 SET subject.text = (line.`LCSHtext`)
 
-MERGE (bundle:MacsBundel {id: (line.macsID)})
+MERGE (bundle:MacsBundle {id: (line.macsID)})
 
 CREATE (bundle)-[:Contains]->(subject);
 
@@ -34,7 +34,7 @@ WHERE line.LCSHtextAND IS NOT NULL AND
 MERGE (subject:Subject { id: (line.`LCSHidAND`) })
 SET subject.text = (line.`LCSHtextAND`)
 
-MERGE (bundle:MacsBundel {id: (line.macsID)})
+MERGE (bundle:MacsBundle {id: (line.macsID)})
 
 CREATE (bundle)-[:Contains {operator: 'AND'}]->(subject);
 
@@ -49,9 +49,62 @@ WHERE line.RameauText IS NOT NULL AND
       line.RameauId IS NOT NULL
 
 MERGE (subject:Subject { id: (line.`RameauId`) })
-SET lcshAnd.text = (line.`LCSHtextAND`)
+SET subject.text = (line.`RameauText`)
 
-MERGE (bundleLcsh:MacsBundel {id: (line.macsID)})
+MERGE (bundle:MacsBundle {id: (line.macsID)})
 
-CREATE (bundleLcsh)-[:Contains {operator: 'AND'}]->(lcshAnd);
+CREATE (bundle)-[:Contains ]->(subject);
+
+
+
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS
+FROM {FILEPATH} AS line
+WITH line
+WHERE line.RameauTextAnd IS NOT NULL AND
+      line.RameauIdAnd IS NOT NULL
+
+MERGE (subject:Subject { id: (line.`RameauIdAnd`) })
+SET subject.text = (line.`RameauTextAnd`)
+
+MERGE (bundle:MacsBundle {id: (line.macsID)})
+
+CREATE (bundle)-[:Contains {operator: 'AND'}]->(subject);
+
+
+
+
+
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS
+FROM {FILEPATH} AS line
+WITH line
+WHERE line.GNDText IS NOT NULL AND
+      line.GNDid IS NOT NULL
+
+MERGE (subject:Subject { id: (line.`GNDid`) })
+SET subject.text = (line.`GNDText`)
+
+MERGE (bundle:MacsBundle {id: (line.macsID)})
+
+CREATE (bundle)-[:Contains ]->(subject);
+
+
+
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS
+FROM {FILEPATH} AS line
+WITH line
+WHERE line.GNDTextAnd IS NOT NULL AND
+      line.GNDidAnd IS NOT NULL
+
+MERGE (subject:Subject { id: (line.`GNDidAnd`) })
+SET subject.text = (line.`GNDTextAnd`)
+
+MERGE (bundle:MacsBundle {id: (line.macsID)})
+
+CREATE (bundle)-[:Contains {operator: 'AND'}]->(subject);
+
+
+
 
