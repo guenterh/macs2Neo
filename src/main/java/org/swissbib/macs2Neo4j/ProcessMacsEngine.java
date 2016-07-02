@@ -26,13 +26,16 @@ public class ProcessMacsEngine {
         solr2NeoParser.parseSolrModel();
 
         ArrayList<SubjectNodesRelations> bundles =  solr2NeoParser.getMacsRelation();
+        System.out.println("now we start the transformation to CSV");
 
-        System.out.println("reached the end");
+        //Neo4JCreator neoCreator = new Neo4JCreator(args[1]);
+        //neoCreator.startTransformation(bundles);
+        //neoCreator.shutdownDatabase();
+
+        CSVFileCreator csvFileCreator = new CSVFileCreator(args[1]);
 
 
-        Neo4JCreator neoCreator = new Neo4JCreator(args[1]);
-        neoCreator.startTransformation(bundles);
-        neoCreator.shutdownDatabase();
+        csvFileCreator.startTransformation(bundles);
 
     }
 
